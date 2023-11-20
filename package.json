@@ -8,6 +8,13 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@assetpack/cli": "^0.8.0",
+    "@assetpack/plugin-compress": "^0.8.0",
+    "@assetpack/plugin-ffmpeg": "^0.8.0",
+    "@assetpack/plugin-json": "^0.8.0",
+    "@assetpack/plugin-manifest": "^0.8.0",
+    "@assetpack/plugin-texture-packer": "^0.8.0",
+    "@assetpack/plugin-webfont": "^0.8.0",
     "@typescript-eslint/eslint-plugin": "^6.11.0",
     "@typescript-eslint/parser": "^6.11.0",
     "eslint": "^8.54.0",

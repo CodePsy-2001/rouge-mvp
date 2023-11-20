@@ -41,18 +41,14 @@ const rotMapToTile = (rotMap: number[][]): Tile[][] => {
   return rotMap.map((row) => row.map((cell) => ({ movable: cell === 0 })));
 };
 
-console.log("rotMap", rotMap._map);
-
 const tileGrid = new Grid<Tile>(MAP_WIDTH, MAP_HEIGHT, rotMapToTile(rotMap._map));
 
 // draw tiles
 export const draw = (app: PIXI.Application) => {
-  const textures = PIXI.Assets.get("atlas").textures;
-
   const tilemap = new CompositeTilemap();
   for (const [i, row] of tileGrid.cells.entries()) {
     for (const [j, cell] of row.entries()) {
-      const tile = cell.movable ? textures["tile.png"] : textures["wall.png"];
+      const tile = cell.movable ? PIXI.Assets.get("tile") : PIXI.Assets.get("wall");
       tilemap.tile(tile, j * TILE_SIZE, i * TILE_SIZE);
     }
   }

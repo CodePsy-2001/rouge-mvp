@@ -1,10 +1,6 @@
 import * as PIXI from "pixi.js";
+import { initAssets } from "./assets.ts";
 import { draw } from "./game.ts";
-
-const loadAssets = async () => {
-  PIXI.Assets.add({ alias: "atlas", src: "assets/atlas.json" });
-  await PIXI.Assets.load(["atlas"]);
-};
 
 /** The PixiJS app Application instance, shared across the project */
 export const app = new PIXI.Application<HTMLCanvasElement>({
@@ -33,13 +29,13 @@ function resize() {
 }
 
 async function init() {
-  await loadAssets();
-
-  draw(app as PIXI.Application);
-
   document.body.appendChild(app.renderer.view);
   window.addEventListener("resize", resize);
   resize();
+
+  await initAssets();
+
+  draw(app as PIXI.Application);
 }
 
 init();
